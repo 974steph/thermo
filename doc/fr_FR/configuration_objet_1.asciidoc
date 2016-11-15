@@ -1,18 +1,18 @@
 :imagesdir: ../images
-La configuration des Equipements "Thermostat" est accessible à partir du menu plugin :
+La configuration des Équipements "Thermostat" est accessible à partir du menu plugin :
 il vous suffit de cliquer sur le bouton "ajouter" ou sur un équipement déjà présent.
 
 image::ajout.png[]
 
 
-La premiere étape, commune aux plugins Jeedom, consiste au réglage des paramètres genéreaux du thermostat
+La première étape, commune aux plugins Jeedom, consiste au réglage des paramètres généraux du thermostat.
 
 image::general1.png[]
 
 
 
 [NOTE]
-Cette étape permet de définir, l'objet parent, l'activation et la visibilité du Thermostat, ainsi que les informations habituelles.
+Cette étape permet de définir l'objet parent, l'activation et la visibilité du thermostat, ainsi que les informations habituelles.
 
 
 
@@ -29,5 +29,5 @@ include::planning.asciidoc[]
 
 
 
-Le thermosatat propose, par defaut, 7 commandes.
+Le thermostat propose, par défaut, 7 commandes.
 Vous ne pouvez pas modifier ces commandes. Elles permettent d'interagir avec l'IHM. 

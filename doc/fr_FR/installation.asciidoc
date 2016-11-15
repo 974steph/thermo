@@ -1,9 +1,9 @@
-Il n'y a pas d'actions particuliere lors  de l'installation du plugin.
+Il n'y a pas d'actions particulière lors  de l'installation du plugin.
 
-J'ai choisi de ne pas exposer, dans cette premiere version les parametres de réglage du PID.
+J'ai choisi de ne pas exposer, dans cette première version les paramètres de réglage du PID.
 
-Cela reste donc plus simple. Le thermostat est reglé pour atteindre le plus rapidemnt possible la température de consigne.
+Cela reste donc plus simple. Le thermostat est réglé pour atteindre le plus rapidement possible la température de consigne.
 
-Les cycles sont des cycles de 10 minutes. Pour preserver la Chaudiere, le temps minimum de chauffe est fixé à 3 minutes.
+Les cycles sont des cycles de 10 minutes. Pour préserver la chaudière, le temps minimum de chauffe est fixé à 3 minutes.
 
 
