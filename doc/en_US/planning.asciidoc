@@ -1,0 +1,59 @@
+:imagesdir: ../images
+==== Gestion des plages
+
+Le plugin Thermostat offre la possibilité de créer des plages spécifiques de contrôle.
+
+image::plage.png[]
+
+
+
+
+[TIP]
+Imaginons que vous ayez defini une température par défaut de 19°C mais que tous les matins vous avez besoin d'une température différente. Les plages sont la pour ça !
+
+
+
+[NOTE]
+Pour créer une plage, il faut cliquer sur le bouton "Créer une plage".  Cela ajoute alors une plage vide dans la liste des plages.
+
+
+
+
+===== Configuration
+
+
+Rien de plus simple. commencez par donner un nom à votre plage et fixez les différents paramètres.
+
+===== Heure de début/fin de la plage
+
+L'heure de début ou de fin d'une plage se définit grâce à cette fenêtre.
+
+image::horaire.png[]
+[TIP]
+Vous pouvez utilisez les bouton + ou - pour diminuer l'heure et les minutes ou les entrer directement à l'aide de votre clavier.
+
+
+.. Heure de début de la plage
+[literal]
+Permet de définir l'heure de début d'une plage.
+.. Heure de fin de la plage
+[literal]
+Permet de définir l'heure de fin d'une plage.
+
+[TIP]
+l'Heure de fin est forcément supérieure à l'heure de début.
+
+
+
+===== Température de consigne
+[literal]
+Ce paramètre permet d'indiquer au thermostat la température de consigne à utiliser pour cette plage.
+
+===== Jour d'application
+[literal]
+il s"agit ici d'un planning d'application de la plage. Vous pouvez choisir d'appliquer votre consigne le lundi, le samedi ou les jours fériés.
+
+
+
+[TIP]
+Vous pouvez créer une multitude de plage correspondant à vos besoins. Choisir la température de consigne au réveil les jour de semaine ou de décider de chauffer moins pendant votre absence.

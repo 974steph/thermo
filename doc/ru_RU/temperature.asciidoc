@@ -1,0 +1,10 @@
+:imagesdir: ../images
+=== Température par défaut
+
+
+image::default.png[]
+
+
+[NOTE]
+il s'agit dans cette section de configurer les Consignes de température par défaut du thermostat. Ces consignes sont utilisées lorsque l'on n'est pas dans une plage de fonctionnement défini ou lorsque le mode hors gel est activé.
+
