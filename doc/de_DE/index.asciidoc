@@ -1,7 +1,7 @@
 :icons:
-== ssaThermostat Thermostat
+== ssaThermostat
 
-=== Description
+=== Beschreibung
 
 include::description.asciidoc[]
 
@@ -11,12 +11,12 @@ include::description.asciidoc[]
 include::installation.asciidoc[]
 
 '''
-=== Configuration
+=== Konfiguration
 '''
 include::configuration.asciidoc[]
 
 '''
-=== Guide
+=== Leitfaden
 '''
 include::guide.asciidoc[]
 
@@ -26,11 +26,11 @@ include::guide.asciidoc[]
 include::faq.asciidoc[]
 
 '''
-=== Développeur
+=== Entwickler
 '''
 include::dev.asciidoc[]
 
 '''
-=== Changelog
+=== Änderungsprotokoll
 '''
 include::changelog.asciidoc[]
