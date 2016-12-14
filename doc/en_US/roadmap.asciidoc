@@ -1,4 +1,4 @@
 
-.janvier 2017
+.january 2017
 * ajout shunt "fenêtre ouverte"
 * ajout mode "absence"
