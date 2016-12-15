@@ -4,7 +4,7 @@
 L'utilisation du thermostat est simple et intuitif. Le Thermostat dispose de deux boutons "mode -" et "mode +". +
 Ces deux boutons permettent de passer successivement  sur les modes suivants :
 
-*  off  : le thermostat est en arrêt forcé,
+* off: the thermostat is forced off.
 *  on   : le thermostat est en marche forcé, la chaudière est donc en route,
 *  auto : le thermostat est en mode pilote, la chaudière sera mise en marche en fonction de la température de consigne et de la température d'ambiance,
 *  Hors gel : le thermostat est en mode pilote, la chaudière sera mise en marche pour maintenir la température de consigne "Hors gel".

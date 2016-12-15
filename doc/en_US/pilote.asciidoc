@@ -1,6 +1,6 @@
 :imagesdir: ../images
 
-=== Pilote
+=== Driver
 
 
 image::pilote.png[]

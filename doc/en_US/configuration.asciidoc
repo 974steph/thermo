@@ -1,9 +1,9 @@
 '''
-==== Configuration du plugin
+==== The plugin configuration
 include::configuration_pluging.asciidoc[]
 
 '''
-==== Configuration d'un objet
+==== Settings of an object
 include::configuration_objet_1.asciidoc[]
 
 '''
