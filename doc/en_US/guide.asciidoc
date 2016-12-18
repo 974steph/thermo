@@ -60,17 +60,17 @@ a|
 |===
 
 
-.Statistique
+. Statistics
 [cols="4,1"]
 |===
 
-a|.Statistique
+a|.Statistic
 image::histo_desc.png[height=300,width=800,role="left"]
 a|
 [guide]
 .guide
 --
-.... Température
+.... Temperature
 .... Consigne
 .... État chaudière
 

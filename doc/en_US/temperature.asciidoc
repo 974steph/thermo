@@ -1,5 +1,5 @@
 :imagesdir: ../images
-=== Température par défaut
+=== Default Temperature
 
 
 image::default.png[]
