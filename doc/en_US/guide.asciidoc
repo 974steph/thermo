@@ -1,4 +1,4 @@
-==== Mode d'emploi du thermostat.
+==== Instructions for use of the thermostat.
 
 
 L'utilisation du thermostat est simple et intuitif. Le Thermostat dispose de deux boutons "mode -" et "mode +". +

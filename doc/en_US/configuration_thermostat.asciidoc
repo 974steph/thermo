@@ -1,5 +1,5 @@
 
-Pour être reconnu par le plugin, le AllOne doit déjà être configuré sur votre réseau wifi.
+To be recognized by the plugin, the AllOne must already be configured on your wireless network.
 
 voici comment procéder :
 
