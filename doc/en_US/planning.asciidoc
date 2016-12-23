@@ -1,5 +1,5 @@
 :imagesdir: ../images
-==== Gestion des plages
+==== Range management
 
 Le plugin Thermostat offre la possibilité de créer des plages spécifiques de contrôle.
 

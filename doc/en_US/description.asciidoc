@@ -1,5 +1,5 @@
 :imagesdir: ../images
-==== Le chauffage est le poste le plus important dans la consommation d’énergie d’une maison sous les latitudes tempérées.
+==== Heating is the largest in the energy consumption of a house in the temperate latitudes.
 
 
 
