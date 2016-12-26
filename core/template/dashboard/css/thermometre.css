@@ -72,6 +72,10 @@
     
 }
 
+.ssaThermoResume, .ssaThermoButton{
+cursor:pointer; 
+}
+
 .quarter {
     
     position: absolute;

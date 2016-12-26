@@ -19,8 +19,7 @@
  
  $(document).ready(function()
  {
-   
-      
+ 
     $("#dtBox").DateTimePicker(
             {
                 titleContentTime: "Heure",
@@ -32,8 +31,12 @@
             });
   
     
-   
+     
  });
+ 
+
+
+
 
 $("#table_plage").delegate('.ssaThermoPlageDeb', 'change', function () {
     console.log($( this ).val());     
@@ -65,7 +68,9 @@ $("#table_plage").delegate('.bt_removePlage', 'click', function () {
     $(this).closest('.plage').remove();
 });
 
-
+$('#bt_initThermostat').on('click', function () {
+    initThermostat();
+});
 
 $('#bt_addPlage').on('click', function () {
     var plage =new Object();
@@ -90,16 +95,60 @@ function saveEqLogic(_eqLogic) {
 }
 
 
+
+function setCycle(lcycle)
+{
+    $(function() {
+        
+        $('div.btn-group[data-toggle-name]').each(function() {
+            var group = $(this);
+            var form = group.parents('form').eq(0);
+            var name = group.attr('data-toggle-name');
+            var hidden = $('input[name="' + name + '"]', form);
+            $('label', group).each(function() {
+                var button = $(this).find('input[type="radio"]');
+                $(this).on('click', function() {
+                    hidden.val(button.val());
+                    var defaut= button.val()*10/100;
+                    if (defaut < 3)
+                        defaut=3;
+                    $('#ssaTherCycleMin').val(defaut);
+                    $('#ssaTherCycleMin').attr('data-min', defaut);
+                    $('#ssaTherCycleMin').attr('data-max', Math.floor(button.val()/2));
+                });
+                
+                if (button.val() == lcycle) {
+                    $(this).addClass('active');
+                }
+            });
+        });
+    });
+    
+    
+    
+}
+
+
 function printEqLogic(_eqLogic) {
     $('#table_plage tbody').empty();
-    if (isset(_eqLogic.configuration)) {
+    if (isset(_eqLogic.configuration))
+    {
         if (isset(_eqLogic.configuration.plages)) {
             for (var i in _eqLogic.configuration.plages) {
                 addPlage(_eqLogic.configuration.plages[i]) ;
                 
             }
         }
+        if (isset (_eqLogic.configuration.pid)) {
+           
+            setCycle(_eqLogic.configuration.pid.cycle);
+            
+            
+            
+            
+        }
     }
+    
 }
 
 
@@ -134,7 +183,24 @@ function getPlage(table)
     
 }
 
+function initThermostat()
+{
+    $('#ssaTherKp').val(45);
+    $('#ssaTherKi').val(0.05);
+    $('#ssaTherKd').val(1); 
+    $('#ssaTherCycleMin').val(3);
+    $('div.btn-group[data-toggle-name]').each(function() {
+        var group = $(this); 
+        $('label', group).each(function() {
+                var button = $(this).find('input[type="radio"]');
+                 $(this).removeClass('active');
+            });
+       
+    });
 
+    $('#cycleDef').addClass('active');
+    $('#clycleDefValue').val(10);
+}
 
 function addPlage(_plage)
 {
@@ -211,10 +277,10 @@ function addPlage(_plage)
     $(".ssaDaySwitch").bootstrapSwitch('size', 'mini');
     
     _plage.calendrier.forEach(function(element){
-        console.log(element+'_'+random);
+        
         $('#'+element+'_'+random).bootstrapSwitch('state',true);
         });
-    console.log(_plage.calendrier);
+    
 }
 
 

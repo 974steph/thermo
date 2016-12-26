@@ -40,9 +40,60 @@ class ssaThermostatPID
   protected  $WINDOWS_size;
   protected  $WINDOWS_start_time;
   protected  $WINDOWS_on_size;
+
   protected  $Relay;
   protected  $thermostat;
+  protected  $min_on;
 
+  /*
+  WINDOWS_runing":"on","
+  WINDOWS_size":1800,"
+  WINDOWS_start_time":1479665822,"
+  WINDOWS_on_size":1026,"
+  Relay":"off"
+  */
+  
+  function getOffLeft()
+  {     if ($this->WINDOWS_runing =='on')
+        {   if ($this->Relay=='off')
+            {
+                return ($this->WINDOWS_start_time + $this->WINDOWS_size - $this->WINDOWS_on_size) - $this->now ;
+            }
+            else
+            {    return $this->WINDOWS_size - $this->WINDOWS_on_size;
+                
+            }
+      
+      
+        }
+        else
+        {
+            return 0;
+        }
+      
+  }
+  
+  function getOnLeft()
+  {     if ($this->WINDOWS_runing=='on')
+        {   if ($this->Relay=='on')
+            {
+                return ($this->WINDOWS_start_time +  $this->WINDOWS_on_size) - $this->now ;
+            }
+            else
+            { return 0;
+                
+            }
+      
+      
+        }
+        else
+        {
+            return 0;
+        }
+      
+  }
+  
+  
   function getOutput()
   {   return $this->Output ;
   }
@@ -75,7 +126,11 @@ class ssaThermostatPID
             'WINDOWS_size' =>$this->WINDOWS_size,
             'WINDOWS_start_time' =>$this->WINDOWS_start_time,
             'WINDOWS_on_size' =>$this->WINDOWS_on_size,
-            'Relay' =>$this->Relay
+            'Relay' =>$this->Relay,
+            'WINDOWS_on_left'=> $this->getOnLeft(),
+            'WINDOWS_off_left'=>$this->getOffLeft(),
+            'consigne'=>$this->Setpoint, 
+            'min_on'=>$this->min_on
              );
         return $conf;
      
@@ -111,6 +166,7 @@ class ssaThermostatPID
       $this->WINDOWS_on_size=$configuration['WINDOWS_on_size'];
       $this->Relay=$configuration['Relay'];
       $this->thermostat=$thermostat;
+      $this->min_on=$configuration['min_on'];
       
       
 
@@ -124,8 +180,8 @@ class ssaThermostatPID
    
    function pilote()
    {  
-       $log_etat=sprintf(" enterData [%s]",  json_encode($this->getPidData()));
-       log::add('ssaThermostat','debug',  $this->thermostat.'[PID]['.__FUNCTION__.']' .  ' : '. $log_etat);
+      //$log_etat=sprintf(" enterData [%s]",  json_encode($this->getPidData()));
+      //log::add('ssaThermostat','debug',  $this->thermostat.'[PID]['.__FUNCTION__.']' .  ' : '. $log_etat);
        
       $restant=($this->WINDOWS_start_time + $this->WINDOWS_on_size) - $this->now ;
       
@@ -185,7 +241,8 @@ class ssaThermostatPID
          { //consigne chauffe
            $this->WINDOWS_start_time = $this->now;
            $tmp= ($this->Output * $this->WINDOWS_size) / $this->outMax; 
-           $this->WINDOWS_on_size= ($tmp<180)?180:$tmp;
+           $this->WINDOWS_on_size= ($tmp<$this->min_on)?$this->min_on:$tmp;
+           
            $this->Relay='on';
            $this->WINDOWS_runing='on';
            $log_etat=sprintf("odre Relay ON");
@@ -267,6 +324,23 @@ class ssaThermostatPID
            $this->WINDOWS_start_time = $this->now;
            $tmp= ($this->Output * $this->WINDOWS_size) / $this->outMax; 
            $this->WINDOWS_on_size= ($tmp<180)?180:$tmp;
+           switch (true) 
+           {
+              case ( $tmp<180 && $this->WINDOWS_size==600) :
+                $this->WINDOWS_on_size= ($tmp<180)?180:$tmp;
+                break;
+              case ( $tmp<300 && $this->WINDOWS_size==1200) :
+                $this->WINDOWS_on_size= ($tmp<300)?300:$tmp;
+                break;
+              case ( $tmp<300 && $this->WINDOWS_size==1800) :
+                $this->WINDOWS_on_size= ($tmp<300)?300:$tmp;
+                break;
+              case ( $tmp<600 && $this->WINDOWS_size>1800) :
+                $this->WINDOWS_on_size= ($tmp<600)?600:$tmp;
+                break;
+        
+            }
+
            $this->Relay='on';
            $this->WINDOWS_runing='on';
            $log_etat=sprintf("odre Relay ON");

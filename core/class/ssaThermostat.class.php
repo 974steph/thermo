@@ -33,6 +33,31 @@ class ssaThermostat extends eqLogic {
     private  $_errMsg="";
     
     
+    
+    private  function libMode($indice)
+    {   $_tabMode= array("Off","On","Auto","Hors gel","Absence","Fenetre ouverte");
+        return $_tabMode[$indice];
+    }
+    
+    private function Off()
+    { return 0;
+    }
+    private function On()
+    { return 1;
+    }
+    private function Auto()
+    { return 2;
+    }
+    private function HG()
+    { return 3;
+    }
+    private function Absence()
+    { return 4;
+    }
+    private function WindowsOpen()
+    { return 5;
+    }
+    
     public static function cron() 
     { 
         foreach (eqLogic::byType('ssaThermostat') as $eqLogic) {
@@ -80,15 +105,25 @@ class ssaThermostat extends eqLogic {
             //excecute
             try {
                 $ssacommandePilote=$this->getConfiguration('commande');
+                
+                   
                 //CmdOff
-                $localTemp=cmd::byString($ssacommandePilote[$cmd[$ordre] ])->execCmd();
+                $listCommand=explode ("&&",$ssacommandePilote[$cmd[$ordre] ]);
+                
+                for ($i=0;$i < sizeof($listCommand); $i++)
+                {   $localTemp=cmd::byString($listCommand[$i])->execCmd();
+                }
+                            
+                
+                //$localTemp=cmd::byString($ssacommandePilote[$cmd[$ordre] ])->execCmd();
                             
                 } catch (Exception $exc) {
                     log::add('ssaThermostat', 'error', $this->getHumanName().'['.__FUNCTION__.']' .' : ' . $exc->getMessage());
-                    $this->_errState='Err';
-                    $this->_errMsg=$exc->getMessage();
+                    //$this->_errState='Err';
+                    //$this->_errMsg=$exc->getMessage();
+                    throw new Exception($this->getHumanName().'['.__FUNCTION__.']' .' : ' . $exc->getMessage()."\n");
                 }
-            log::add('ssaThermostat','debug', $this->getHumanName().'['.__FUNCTION__.']' .  ' :  change to '.$ordre );
+            log::add('ssaThermostat','info', $this->getHumanName().'['.__FUNCTION__.']' .  ' :  change to '.$ordre );
         }
         
         
@@ -120,6 +155,10 @@ class ssaThermostat extends eqLogic {
        $this->createActionCmd("rollUp",$mode);
        $this->createActionCmd("rollDown",$mode);
        
+       $this->createActionCmd("absence",$mode);
+       $this->createActionCmd("presence",$mode);
+       $this->createActionCmd("horsgel",$mode);
+      
        
        $this->setDataPid(array());
        
@@ -147,7 +186,14 @@ class ssaThermostat extends eqLogic {
             //verification consigne defaut
             if ($temp["hgTemp"]=='')
                  $temp["hgTemp"]=$defautTemp;
+           
+            //verification consigne defaut
+            if ($temp["AbsTemp"]=='')
+                 $temp["AbsTemp"]=$defautTemp;
+            
             $this->setConfiguration('defaultTemp',$temp);
+            
+           
         
         }
         
@@ -189,13 +235,149 @@ class ssaThermostat extends eqLogic {
             
            }
            $this->setConfiguration('plages',$plages);
-            
+           
+         
         }
         
         
     }
     
-    private function setDataPid($value)
+    
+    private function initializePid()
+    {   
+        $default = array();
+            $conf= array(
+            'kp' => 45,
+            'ki' => 0.05,
+            'kd' => 1,
+            'controllerdirection' =>'DIRECT',
+            'output' =>0,
+            'inAuto' =>'true',
+            'SampleTime' =>10,
+            'lastTime' => time(),
+            'ITerm' => 0,                          
+            'lastInput' => 0 ,
+            'outMin' => 0,
+            'outMax' => 100,
+            'WINDOWS_runing' => 'off',
+            'WINDOWS_size' =>600,
+            'WINDOWS_start_time' =>0,
+            'WINDOWS_on_size' =>0,
+            'Relay' =>'off',
+            'WINDOWS_on_left'=>0,
+            'WINDOWS_off_left'=>0,
+            'consigne'=>0,
+            'min_on'=>180,    
+             );  
+        
+        
+          //conf pid
+           if ($this->getConfiguration('pid') != '')
+           {    
+                $localPid=$this->getConfiguration('pid');
+                $log_etat=sprintf("configuration pid [%s]",  json_encode($localPid));
+                log::add('ssaThermostat','debug', $this->getHumanName().'['.__FUNCTION__.']' .  ' : '.$log_etat);
+                
+                if (isset($localPid['cycle']))
+                {   $val=$localPid['cycle'] * 60; 
+                    if ($val < 10)
+                        $val=10;
+                    $default['WINDOWS_size']=$val;
+                }
+                else
+                {  $log_etat=sprintf("configuration pid [cycle] -> absent");
+                   log::add('ssaThermostat','debug', $this->getHumanName().'['.__FUNCTION__.']' .  ' : '.$log_etat);
+               
+                }  
+                
+                
+                if (isset($localPid['kp']))
+                {   $val=$localPid['kp'] ; 
+                    if ($val < 0)
+                        $val=45;
+                    $default['kp']=$val;
+                }
+                else
+                {  $log_etat=sprintf("configuration pid [kp] -> absent");
+                   log::add('ssaThermostat','debug', $this->getHumanName().'['.__FUNCTION__.']' .  ' : '.$log_etat);
+               
+                }   
+                
+                if (isset($localPid['ki']))
+                {   $val=$localPid['ki'] ; 
+                    if ($val < 0)
+                        $val=0.05;
+                    $default['ki']=$val;
+                }
+                else
+                {  $log_etat=sprintf("configuration pid [ki] -> absent");
+                   log::add('ssaThermostat','debug', $this->getHumanName().'['.__FUNCTION__.']' .  ' : '.$log_etat);
+               
+                }  
+                
+                if (isset($localPid['kd']))
+                {   $val=$localPid['kd'] ; 
+                    if ($val < 0)
+                        $val=1;
+                    $default['kd']=$val;
+                }
+                else
+                {  $log_etat=sprintf("configuration pid [kd] -> absent");
+                   log::add('ssaThermostat','debug', $this->getHumanName().'['.__FUNCTION__.']' .  ' : '.$log_etat);
+               
+                }   
+                
+                if (isset($localPid['cycle_min']))
+                {    
+                    $default['min_on']=$localPid['cycle_min'] * 60;
+                }
+                else 
+                {
+                    if (isset($localPid['cycle']))
+                    {   $val=$localPid['cycle'] * 60;
+                        switch (true) 
+                        {
+                           case ( $val==600) :
+                             $default['min_on']=180;
+                             break;
+                           case ( $val==1200) :
+                             $default['min_on']=360;
+                             break;
+                           case ( $val==1800) :
+                             $default['min_on']=600;
+                             break;
+                           case ( $val>1800) :
+                             $default['min_on']=600;
+                             break;
+
+                        }
+                        
+                    }
+                    else 
+                    { $log_etat=sprintf("configuration pid [cycle_min] -> configuration par defaut");
+                      log::add('ssaThermostat','debug', $this->getHumanName().'['.__FUNCTION__.']' .  ' : '.$log_etat);
+               
+                        
+                    }
+                    
+                    
+                }
+                  
+                
+           }
+        
+        
+        foreach ($default as $k => $v)
+        {   $conf[$k]=$v;
+            
+        }
+        
+        $this->setConfiguration('dataPid', $conf);
+        $this->save();
+        
+    }
+    
+    private function setDataPid($value,$save=true)
     {
          //conf pid
         $conf=$this->getConfiguration('dataPid');
@@ -227,7 +409,11 @@ class ssaThermostat extends eqLogic {
             'WINDOWS_size' =>600,
             'WINDOWS_start_time' =>0,
             'WINDOWS_on_size' =>0,
-            'Relay' =>'off'
+            'Relay' =>'off',
+            'WINDOWS_on_left'=>0,
+            'WINDOWS_off_left'=>0,
+            'consigne'=>0,
+            'min_on'=>3,   
              );
             
 	}
@@ -238,11 +424,12 @@ class ssaThermostat extends eqLogic {
         }
         
         $this->setConfiguration('dataPid', $conf);
-        $this->save();
-        /*
-        $log_etat=sprintf("fin [%s]",json_encode($conf));
-        log::add('ssaThermostat','debug', $this->getHumanName().'['.__FUNCTION__.']' .  ' : '.$log_etat);
-           */
+        if ($save)
+            $this->save();
+       
+        $log_etat=sprintf(" dataPid [%s]",  json_encode($conf));
+        log::add('ssaThermostat','info',  $this->getHumanName().'['.__FUNCTION__.']' .  ' : '. $log_etat);
+     
         
         
     }
@@ -254,11 +441,13 @@ class ssaThermostat extends eqLogic {
         
     }
 
-    public function preUpdate() {
+    public function preUpdate() 
+    {
         
     }
 
-    public function postUpdate() {
+    public function postUpdate()
+    {
         
      
                
@@ -416,8 +605,8 @@ class ssaThermostat extends eqLogic {
              $replace['#activateTexte#'] = 'Off' ;
         
         }
-        $replace['#$errState#'] = $this->_errState;
-        $replace['#result_msg#'] = htmlentities($this->getName().": ".str_replace("'", " ", $this->_errMsg));
+        //$replace['#$errState#'] = $this->_errState;
+        //$replace['#result_msg#'] = htmlentities($this->getName().": ".str_replace("'", " ", $this->_errMsg));
         $html = template_replace($replace, getTemplate('core', $_version, 'simpleThermostat', 'ssaThermostat'));
         cache::set('ssaThermostatWidget' . $_version . $this->getId(), $html, 60);
         return $html;
@@ -442,26 +631,68 @@ class ssaThermostat extends eqLogic {
 	$this->refreshWidget();
     }
     
+//("Off","On","Auto","Hors gel","Absence","Fenetre ouverte");
+ 
+    
+   
+        
+//("Off","On","Auto","Hors gel","Absence","Fenetre ouverte");
+    public static function setThermoMode($_options)
+    {
+        $thermostat_id= $_options['thermostat_id'];
+        $etat= $_options['etat'];
+        $ssaEqlogicObj = ssaThermostat::byId($thermostat_id);
+        
+        if (is_object($ssaEqlogicObj) && $ssaEqlogicObj->getIsEnable() == 1)
+        {
+            if (jeedom::isDateOk()) 
+            {
+                $log_etat=sprintf("set [%s]", $ssaEqlogicObj->libMode($etat));
+                log::add('ssaThermostat','info',  $ssaEqlogicObj->getHumanName().'['.__FUNCTION__.']' .  ' : '. $log_etat);
+                $ssaThermostatMode= $ssaEqlogicObj->getCmd(null, 'mode'); 
+
+                $ssaThermostatMode->setConfiguration('mode_id',$etat);
+                $ssaThermostatMode->setConfiguration('mode_lib',$ssaEqlogicObj->libMode($etat));
+                
+                $ssaThermostatMode->setCollectDate('');
+                $ssaThermostatMode->event($ssaEqlogicObj->libMode($etat));
+                
+                
+                $ssaThermostatMode->save();  
+                
+                
+                if ($etat > 1)
+                { //init dataPid
+                  $ssaEqlogicObj->initializePid();  
+                }
+                
+                $ssaEqlogicObj->pilote();
+                
+            }
+        }    
+        
+    }
     
     /*     * **********************Reactoringr*************************** */
      public static function roll($_options)
     {   
-        $tabmode=array("Off","On","Auto","Hors gel");
+       
         $thermostat_id= $_options['thermostat_id'];
         $action= $_options['action'];
         $ssaEqlogicObj = ssaThermostat::byId($thermostat_id);
-        
-
+       
+  
         if (is_object($ssaEqlogicObj) && $ssaEqlogicObj->getIsEnable() == 1)
         {
             if (jeedom::isDateOk()) 
-            {    
+            {   
+                
                 $ssaThermostatMode= $ssaEqlogicObj->getCmd(null, 'mode'); 
                 $currentMode=$ssaThermostatMode->getConfiguration('mode_id');
                 if ($action=="up")
                 {  $currentMode=$currentMode+1;
-                   if ($currentMode >3)
-                      $currentMode =3; 
+                   if ($currentMode >4)
+                      $currentMode =4; 
 
                 }
                 else
@@ -470,15 +701,23 @@ class ssaThermostat extends eqLogic {
                       $currentMode = 0; 
 
                 }
-                $log_etat=sprintf("set [%s]",$tabmode[$currentMode]);
+                
+                
+                
+                if ($currentMode > 1)
+                { //init dataPid
+                  $ssaEqlogicObj->initializePid();  
+                }
+                
+                $log_etat=sprintf("set [%s]",$ssaEqlogicObj->libMode($currentMode));
                 log::add('ssaThermostat','debug',  $ssaEqlogicObj->getHumanName().'['.__FUNCTION__.']' .  ' : '. $log_etat);
 
 
                 $ssaThermostatMode->setConfiguration('mode_id',$currentMode);
-                $ssaThermostatMode->setConfiguration('mode_lib',$tabmode[$currentMode]);
+                $ssaThermostatMode->setConfiguration('mode_lib',$ssaEqlogicObj->libMode($currentMode));
                 
                 $ssaThermostatMode->setCollectDate('');
-                $ssaThermostatMode->event($tabmode[$currentMode]);
+                $ssaThermostatMode->event($ssaEqlogicObj->libMode($currentMode));
                 
                 
                 $ssaThermostatMode->save();  
@@ -556,6 +795,10 @@ class ssaThermostat extends eqLogic {
         $log_etat=sprintf("enter");
         log::add('ssaThermostat','debug',  $this->getHumanName().'['.__FUNCTION__.']' .  ' : '. $log_etat);
         $currentPid=$this->getConfiguration('dataPid');
+       
+        $log_etat=sprintf(" dataPid [%s]",  json_encode($currentPid));
+        log::add('ssaThermostat','debug',  $this->getHumanName().'['.__FUNCTION__.']' .  ' : '. $log_etat);
+     
         return $currentPid;
         
     }
@@ -655,6 +898,14 @@ class ssaThermostat extends eqLogic {
                 $consigneTemp = $default["hgTemp"];
                 $consignePlage= "temperature hors gel";
             }
+            if ($localMode==4)
+            {   
+                $consigneTemp = $default["AbsTemp"];
+                $consignePlage= "Absence";
+            }
+            
+            
+            
             //float
             $consigneTemp=  number_format($consigneTemp, 1);
             
@@ -681,7 +932,7 @@ class ssaThermostat extends eqLogic {
 
     
       //recupere le mode de l'objet
-    //("Off","On","Auto","Hors gel");
+    //("Off","On","Auto","Hors gel","Absence","Fenetre ouverte");
     private  function getMode()
     {
         $log_etat=sprintf("enter");
@@ -746,7 +997,7 @@ class ssaThermostat extends eqLogic {
             $log_etat=sprintf("mode[%s] etat[%s]",$localMode,$localEtat);
             log::add('ssaThermostat','debug',  $this->getHumanName().'['.__FUNCTION__.']' .  ' : '. $log_etat);
 
-            //("Off","On","Auto","Hors gel");
+            //("Off","On","Auto","Hors gel","Absence","fenetre ouverte");
             if ($localMode==1 && $localEtat==0)
             {   $this->setOnOff(1);
                 //cmd marche
@@ -834,10 +1085,23 @@ class ssaThermostatCmd extends cmd {
         {  $eqLogic->roll(array('thermostat_id' => intval($eqLogic->getId()),'action' =>'up' ));
 
         }
+        
         if ($this->getLogicalId() == 'rollDown') 
         {  $eqLogic->roll(array('thermostat_id' => intval($eqLogic->getId()),'action' =>'down' ));
         }
         
+        
+        if ($this->getLogicalId() == 'absence') 
+        {  $eqLogic->setThermoMode(array('thermostat_id' => intval($eqLogic->getId()) ,'etat' =>'4' ));
+        }
+        
+        if ($this->getLogicalId() == 'presence') 
+        {  $eqLogic->setThermoMode(array('thermostat_id' => intval($eqLogic->getId()) ,'etat' =>'2' ));
+        }
+        
+        if ($this->getLogicalId() == 'horsgel') 
+        {  $eqLogic->setThermoMode(array('thermostat_id' => intval($eqLogic->getId()) ,'etat' =>'3' ));
+        }
         
         //$eqLogic->refreshScreen();
         
