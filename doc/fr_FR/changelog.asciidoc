@@ -1,10 +1,20 @@
+:Date: $Date$
+:Revision: $Id$
+:docinfo:
+:title:  changelog
+:page-liquid:
+:icons:
 :imagesdir: ../images
 
-=== Version
 
-'''
-include::version.asciidoc[]
 
-=== Roadmap
+== Changelog
 '''
-include::roadmap.asciidoc[]
+.version : dev  janv 2017
+* dev terminé, test en cours
+
+
+.version : 2016-11-09
+* correction "bogue graphique window 7 & 8"
+
+

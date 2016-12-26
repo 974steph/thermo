@@ -1,4 +1,11 @@
+:Date: $Date$
+:Revision: $Id$
+:docinfo:
+:title:  planning
+:page-liquid:
+:icons:
 :imagesdir: ../images
+
 ==== Gestion des plages
 
 Le plugin Thermostat offre la possibilité de créer des plages spécifiques de contrôle.
@@ -19,12 +26,12 @@ Pour créer une plage, il faut cliquer sur le bouton "Créer une plage".  Cela a
 
 
 
-===== Configuration
+==== Configuration
 
 
-Rien de plus simple. commencez par donner un nom à votre plage et fixez les différents paramètres.
+Rien de plus simple. commencez par donner un nom à votre plage et fixez les différents paramètres
 
-===== Heure de début/fin de la plage
+==== Heure de début/fin de la plage
 
 L'heure de début ou de fin d'une plage se définit grâce à cette fenêtre.
 
@@ -45,14 +52,13 @@ l'Heure de fin est forcément supérieure à l'heure de début.
 
 
 
-===== Température de consigne
+==== Température de consigne
 [literal]
-Ce paramètre permet d'indiquer au thermostat la température de consigne à utiliser pour cette plage.
+Ce parametre  permet d'indiquer au thermostat la température de consigne à utiliser pour cette plage
 
-===== Jour d'application
+==== Jour d'application
 [literal]
-il s"agit ici d'un planning d'application de la plage. Vous pouvez choisir d'appliquer votre consigne le lundi, le samedi ou les jours fériés.
-
+il s'agit ici d'un planning d'application de la plage. Vous pouvez choisir d'appliquer votre consigne le lundi, le samedi ou les jours fériés.
 
 
 [TIP]

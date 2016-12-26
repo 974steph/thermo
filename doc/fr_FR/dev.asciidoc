@@ -1,2 +1,11 @@
+:Date: $Date$
+:Revision: $Id$
+:docinfo:
+:title:  dev
+:page-liquid:
 :icons:
+
+
+== Développeur
+'''
 974steph
