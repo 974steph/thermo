@@ -1,0 +1,16 @@
+:Date: $Date$
+:Revision: $Id$
+:docinfo:
+:title:  roadmap
+:page-liquid:
+:icons:
+
+
+== Roadmap
+'''
+
+
+
+.printemps 2017
+* ajout de la fonction refroidir ()
+* ajout shunt "fenetre ouverte"
