@@ -1,0 +1,17 @@
+:Date: $Date$
+:Revision: $Id$
+:docinfo:
+:title:  faq
+:page-liquid:
+:icons:
+
+
+== FAQ
+'''
+.note
+Attention, je prends un peu d'avance dans la doc.
+celle presente aussi les focntionnalités sui seront livré en janvier 2017
+
+.Nouvelle version
+Cette version est une version majeur.
+il est conseillé de suprrimer les thermostats existant et d'en créer de nouveaux
