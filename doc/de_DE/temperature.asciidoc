@@ -6,7 +6,7 @@
 :icons:
 :imagesdir: ../images
 
-==== Temperature par defaut
+==== Standard Temperatur
 
 
 image::default.png[]

@@ -26,7 +26,7 @@ Pour créer une plage, il faut cliquer sur le bouton "Créer une plage".  Cela a
 
 
 
-==== Configuration
+==== Konfiguration
 
 
 Rien de plus simple. commencez par donner un nom à votre plage et fixez les différents paramètres

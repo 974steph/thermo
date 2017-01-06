@@ -415,26 +415,26 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toc" class="toc2">
 <div id="toctitle">Table des matières</div>
 <ul class="sectlevel1">
-<li><a href="#_description">1. Description</a>
+<li><a href="#_beschreibung">1. Beschreibung</a>
 <ul class="sectlevel2">
 <li><a href="#_le_chauffage_est_le_poste_le_plus_important_dans_la_consommation_d_énergie_d_une_maison_sous_les_latitudes_tempérées">1.1. Le chauffage est le poste le plus important dans la consommation d’énergie d’une maison sous les latitudes tempérées.</a></li>
 <li><a href="#_l_algorithme_de_contrôle_mis_en_place_est_un_algorithme_avec_une_régulation_par_pid_br">1.2. L&#8217;algorithme  de contrôle mis en place est un algorithme avec une régulation par PID.<br></a></li>
 </ul>
 </li>
 <li><a href="#_installation">2. Installation</a></li>
-<li><a href="#_configuration_du_plugin">3. Configuration du plugin</a></li>
-<li><a href="#_configuration_d_un_thermostat">4. Configuration d&#8217;un thermostat</a>
+<li><a href="#_plugin_konfiguration">3. Plugin Konfiguration</a></li>
+<li><a href="#_thermostat_konfiguration">4. Thermostat Konfiguration</a>
 <ul class="sectlevel2">
 <li><a href="#_la_configuration_du_thermostat_s_effectue_en_4_étapes">4.1. La configuration du Thermostat s&#8217;effectue en 4 étapes :</a>
 <ul class="sectlevel3">
 <li><a href="#_pilote">4.1.1. Pilote</a></li>
-<li><a href="#_temperature_par_defaut">4.1.2. Temperature par defaut</a></li>
+<li><a href="#_standard_temperatur">4.1.2. Standard Temperatur</a></li>
 <li><a href="#_réglage_du_thermostat">4.1.3. Réglage du thermostat</a></li>
 <li><a href="#_cycle">4.1.4. Cycle</a></li>
-<li><a href="#_parametre_pid">4.1.5. Parametre PID</a></li>
+<li><a href="#_pid_parameter">4.1.5. PID Parameter</a></li>
 <li><a href="#_remise_à_zero">4.1.6. Remise à zero</a></li>
 <li><a href="#_gestion_des_plages">4.1.7. Gestion des plages</a></li>
-<li><a href="#_configuration">4.1.8. Configuration</a></li>
+<li><a href="#_konfiguration">4.1.8. Konfiguration</a></li>
 <li><a href="#_heure_de_début_fin_de_la_plage">4.1.9. Heure de début/fin de la plage</a></li>
 <li><a href="#_température_de_consigne">4.1.10. Température de consigne</a></li>
 <li><a href="#_jour_d_application">4.1.11. Jour d&#8217;application</a></li>
@@ -445,15 +445,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_mode_d_emploi_du_thermostat">5. Mode d&#8217;emploi du thermostat.</a></li>
 <li><a href="#_intégration_avec_vos_scénarios">6. Intégration avec vos scénarios.</a></li>
 <li><a href="#_faq">7. FAQ</a></li>
-<li><a href="#_développeur">8. Développeur</a></li>
-<li><a href="#_changelog">9. Changelog</a></li>
-<li><a href="#_roadmap">10. Roadmap</a></li>
+<li><a href="#_entwickler">8. Entwickler</a></li>
+<li><a href="#_Änderungsprotokoll">9. Änderungsprotokoll</a></li>
+<li><a href="#_fahrplan">10. Fahrplan</a></li>
 </ul>
 </div>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_description">1. Description</h2>
+<h2 id="_beschreibung">1. Beschreibung</h2>
 <div class="sectionbody">
 <hr>
 <div class="sect2">
@@ -532,7 +532,7 @@ De ce fait, ce système est à la fois plus économique et surtout plus conforta
 </div>
 </div>
 <div class="sect1">
-<h2 id="_configuration_du_plugin">3. Configuration du plugin</h2>
+<h2 id="_plugin_konfiguration">3. Plugin Konfiguration</h2>
 <div class="sectionbody">
 <hr>
 <div class="paragraph">
@@ -550,7 +550,7 @@ il vous suffit de cliquer sur le bouton "ajouter" ou sur un équipement déjà p
 </div>
 </div>
 <div class="sect1">
-<h2 id="_configuration_d_un_thermostat">4. Configuration d&#8217;un thermostat</h2>
+<h2 id="_thermostat_konfiguration">4. Thermostat Konfiguration</h2>
 <div class="sectionbody">
 <hr>
 <div class="paragraph">
@@ -666,7 +666,7 @@ Commande Off :#[developpement][radiateur1][Off]#&amp;&amp;#[developpement][radia
 </div>
 </div>
 <div class="sect3">
-<h4 id="_temperature_par_defaut">4.1.2. Temperature par defaut</h4>
+<h4 id="_standard_temperatur">4.1.2. Standard Temperatur</h4>
 <div class="imageblock">
 <div class="content">
 <img src="../images/default.png" alt="default">
@@ -726,7 +726,7 @@ De  20 minutes pour ma clim et 60 minutes pour mon seche serviette.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parametre_pid">4.1.5. Parametre PID</h4>
+<h4 id="_pid_parameter">4.1.5. PID Parameter</h4>
 <div class="paragraph">
 <p>Vous pouvez modifier les parametres Kp Ki et Kd  du pid. Vous trouverez ci joint un article interessant sur la gestion par pid <a href="http://irobux.com/le-pid-explique-a-mon-fils/" class="bare">http://irobux.com/le-pid-explique-a-mon-fils/</a></p>
 </div>
@@ -786,7 +786,7 @@ Pour créer une plage, il faut cliquer sur le bouton "Créer une plage".  Cela a
 </div>
 </div>
 <div class="sect3">
-<h4 id="_configuration">4.1.8. Configuration</h4>
+<h4 id="_konfiguration">4.1.8. Konfiguration</h4>
 <div class="paragraph">
 <p>Rien de plus simple. commencez par donner un nom à votre plage et fixez les différents paramètres</p>
 </div>
@@ -1095,7 +1095,7 @@ il est conseillé de suprrimer les thermostats existant et d&#8217;en créer de 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_développeur">8. Développeur</h2>
+<h2 id="_entwickler">8. Entwickler</h2>
 <div class="sectionbody">
 <hr>
 <div class="paragraph">
@@ -1104,7 +1104,7 @@ il est conseillé de suprrimer les thermostats existant et d&#8217;en créer de 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_changelog">9. Changelog</h2>
+<h2 id="_Änderungsprotokoll">9. Änderungsprotokoll</h2>
 <div class="sectionbody">
 <hr>
 <div class="ulist">
@@ -1148,7 +1148,7 @@ il est conseillé de suprrimer les thermostats existant et d&#8217;en créer de 
 </ul>
 </div>
 <div class="ulist">
-<div class="title">version : 2016-11-09</div>
+<div class="title">Version : 2016-11-09</div>
 <ul>
 <li>
 <p>correction "bogue graphique window 7 &amp; 8"</p>
@@ -1158,7 +1158,7 @@ il est conseillé de suprrimer les thermostats existant et d&#8217;en créer de 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_roadmap">10. Roadmap</h2>
+<h2 id="_fahrplan">10. Fahrplan</h2>
 <div class="sectionbody">
 <hr>
 <div class="ulist">

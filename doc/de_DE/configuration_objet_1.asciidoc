@@ -10,7 +10,7 @@ La configuration des équipements "Thermostat" est accessible à partir du menu 
 il vous suffit de cliquer sur le bouton "ajouter" ou sur un équipement déjà présent.
 
 
-== Configuration d'un thermostat
+== Thermostat Konfiguration
 '''
 
 La configuration des Equipements "Thermostat" est accessible a partir du menu plugin :

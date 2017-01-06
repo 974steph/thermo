@@ -8,7 +8,7 @@
 
 
 
-== Changelog
+== Änderungsprotokoll
 '''
 .version : janv 2017
 * ajout mode absence
@@ -22,6 +22,6 @@
 ** gestion kp ki et kd
 
 
-.version : 2016-11-09
+.Version : 2016-11-09
 * correction "bogue graphique window 7 & 8"
 

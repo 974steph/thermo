@@ -6,6 +6,6 @@
 :icons:
 
 
-== Développeur
+== Entwickler
 '''
 974steph

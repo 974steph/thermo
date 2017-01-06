@@ -6,7 +6,7 @@
 :icons:
 :imagesdir: ../images
 
-== Description
+== Beschreibung
 '''
 
 === Le chauffage est le poste le plus important dans la consommation d’énergie d’une maison sous les latitudes tempérées.
