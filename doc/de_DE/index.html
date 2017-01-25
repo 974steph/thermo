@@ -436,7 +436,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_gestion_des_plages">4.1.7. Gestion des plages</a></li>
 <li><a href="#_konfiguration">4.1.8. Konfiguration</a></li>
 <li><a href="#_heure_de_début_fin_de_la_plage">4.1.9. Heure de début/fin de la plage</a></li>
-<li><a href="#_température_de_consigne">4.1.10. Température de consigne</a></li>
+<li><a href="#_soll_temperatur">4.1.10. Soll Temperatur</a></li>
 <li><a href="#_jour_d_application">4.1.11. Jour d&#8217;application</a></li>
 </ul>
 </li>
@@ -623,7 +623,7 @@ il s&#8217;agit dans cette section de configurer les commandes qui vont permettr
 </div>
 </li>
 <li>
-<p>Commande Off</p>
+<p>Befehl An</p>
 <div class="literalblock">
 <div class="content">
 <pre>Cette commande permet d'indiquer au thermostat la commande à utiliser pour arrêter votre chaudière ou radiateur</pre>
@@ -847,7 +847,7 @@ l&#8217;Heure de fin est forcément supérieure à l&#8217;heure de début.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_température_de_consigne">4.1.10. Température de consigne</h4>
+<h4 id="_soll_temperatur">4.1.10. Soll Temperatur</h4>
 <div class="literalblock">
 <div class="content">
 <pre>Ce parametre  permet d'indiquer au thermostat la température de consigne à utiliser pour cette plage</pre>
@@ -887,7 +887,7 @@ Elles permettent d&#8217;interagir avec l&#8217;IHM.</p>
 <td class="content">
 les commandes suivantes peuvent etres appelées à partir de vos scénarios ou autre modules. :
 - absence
-- presence
+- Anwesenheit
 - horsgel
 </td>
 </tr>
@@ -1030,13 +1030,17 @@ Ces deux boutons permettent de passer successivement  sur les modes suivants :</
 <div class="title">guide</div>
 <ol class="guide">
 <li>
-<p>Température</p>
-</li>
+<p>Temperatur</p>
+<div class="olist upperalpha">
+<ol class="upperalpha" type="A">
 <li>
 <p>Consigne</p>
 </li>
 <li>
 <p>État chaudière</p>
+</li>
+</ol>
+</div>
 </li>
 </ol>
 </div></div></td>
@@ -1088,7 +1092,7 @@ Ces nouvelles commandes ne sont pas disponible pour les thermostat dejà existan
 celle presente aussi les focntionnalités sui seront livré en janvier 2017</p>
 </div>
 <div class="paragraph">
-<div class="title">Nouvelle version</div>
+<div class="title">Neue Version</div>
 <p>Cette version est une version majeur.
 il est conseillé de suprrimer les thermostats existant et d&#8217;en créer de nouveaux</p>
 </div>
@@ -1118,7 +1122,7 @@ il est conseillé de suprrimer les thermostats existant et d&#8217;en créer de 
 <div class="ulist">
 <ul>
 <li>
-<p>presence</p>
+<p>Anwesenheit</p>
 </li>
 <li>
 <p>absence</p>

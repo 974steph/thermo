@@ -52,7 +52,7 @@ l'Heure de fin est forcément supérieure à l'heure de début.
 
 
 
-==== Température de consigne
+==== Soll Temperatur
 [literal]
 Ce parametre  permet d'indiquer au thermostat la température de consigne à utiliser pour cette plage
 

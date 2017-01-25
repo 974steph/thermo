@@ -78,7 +78,7 @@ a|
 [guide]
 .guide
 
-.... Température
+... Temperatur
 .... Consigne
 .... État chaudière
 

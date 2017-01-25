@@ -55,5 +55,5 @@ Elles permettent d'interagir avec l'IHM.
 [NOTE]
 les commandes suivantes peuvent etres appelées à partir de vos scénarios ou autre modules. :
 - absence
-- presence
+- Anwesenheit
 - horsgel

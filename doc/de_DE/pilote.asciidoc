@@ -24,7 +24,7 @@ La sonde de température permet d'indiquer au Thermostat la commande qui va lui 
 . Commande ON
 [literal]
 Cette commande permet d'indiquer au Thermostat la commande à utiliser pour mettre en route votre chaudière ou radiateur
-. Commande Off
+. Befehl An
 [literal]
 Cette commande permet d'indiquer au thermostat la commande à utiliser pour arrêter votre chaudière ou radiateur
 
