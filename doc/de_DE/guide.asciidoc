@@ -68,7 +68,7 @@ a|
 |===
 
 
-.Statistique
+.Statistiken
 [cols="4,1"]
 |===
 
