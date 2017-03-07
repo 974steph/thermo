@@ -33,7 +33,7 @@ De  20 minutes pour ma clim et 60 minutes pour mon seche serviette.
 Vous pouvez modifier les parametres Kp Ki et Kd  du pid. Vous trouverez ci joint un article interessant sur la gestion par pid http://irobux.com/le-pid-explique-a-mon-fils/
 
 
-==== Remise à zero
+==== Zurücksetzen
 
 Je vous proposes un bouton permettant de remettre ces parametres à leurs valeurs par defaut.
 
