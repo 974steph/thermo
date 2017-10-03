@@ -1,0 +1,471 @@
+:root
+{
+    --shape-form: 80% ;
+    --button-H-Align: 10px;
+    --button-V-Align: 16px;
+}
+
+.ssaThermoButton
+{   position: absolute;
+    font-size: 20px; 
+    font-weight: bold;
+    line-height: 1em;
+    color:  #D0D9DA;
+    text-shadow: 1px 4px 8px #def, 0 0 0 #000, 1px 4px 6px #def;
+}
+
+.ssaThermoButtonSelect
+{   color: #7bc1f7;
+    text-shadow: 1px 4px 8px #def, 0 0 0 #000, 1px 4px 6px #def;
+}
+
+.ssaTempcontainer{
+    
+    
+
+}
+
+.ssaThermostat {
+    max-width: 260px;
+    max-height: 300px;
+    width: 260px;
+    height: 300px;
+    margin: auto;
+    margin: auto;
+    position: relative;
+    top: 0; left: 0; bottom: 0; right: 0;
+    
+  
+    
+}
+@import url(http://fonts.googleapis.com/css?family=Dosis:200,400,500,600);
+
+
+
+
+.ssathermoTetiere
+{   float:left;
+    width:100%;
+    height:10%;
+    display : inline-block;
+    
+ 
+}
+.ssaThermo
+{   position: relative;
+    margin-top: 15%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 94%;
+    height: 82%;
+    display : block;
+    
+}
+
+.ssaThermoResume
+{
+    margin-left: auto;
+    margin-right: auto;
+    width:25%;
+    height:50%;
+    display : inline;
+    
+}
+
+.ssaThermoResume, .ssaThermoButton{
+cursor:pointer; 
+}
+
+.quarter {
+    
+    position: absolute;
+    width: 50%;
+    height: 50%;
+  /*transition: background-color 0.2s ease-in-out;*/
+}
+
+
+
+
+
+
+
+
+.de .den, .de .dene, .de .denem, .de .roue { position: absolute;  left: 50%; top: 50%; }
+/*.de .deneme, .de .denemeBas,*/
+
+
+
+
+
+
+
+.quarter1 {
+  top: 0;
+  left: 0;
+  border-radius: 80% 0 0 0;
+  background: #f2f6f5;
+  
+  --relief-dir: 265deg;
+  --fond-dir: 265deg;
+}
+
+.deFond1{
+    background: #f2f6f5;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .5), 0 1px 1px rgba(255, 255, 255, 1);
+    background: -moz-linear-gradient(top, #f2f6f5 0%, #cbd5d6 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f2f6f5), color-stop(100%, #cbd5d6));
+    background: -webkit-linear-gradient(265deg, #f2f6f5 0%, #cbd5d6 100%);
+    
+}
+
+.deRelief1 {
+    width: 65%;
+    height: 65%;
+    margin: 35% 35% 35% 35%;
+    background: #cbd5d6;
+    background: -moz-linear-gradient(top, #cbd5d6 0%, #f2f6f5 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #cbd5d6), color-stop(100%, #f2f6f5));
+    background: -webkit-linear-gradient(265deg, #cbd5d6 0%, #f2f6f5 100%);
+    
+
+}
+
+.quarter1 .ssaThermoButton {
+    top: 16px;
+    right: 10px;
+
+}
+
+.quarter2 {
+  top: 0;
+  right: 0;
+  background: #f2f6f5;
+  border-radius: 0 80% 0 0;
+  --relief-dir: -90deg;
+  --fond-dir: 265deg;
+}
+.deFond2{
+    background: #f2f6f5;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .5), 0 1px 1px rgba(255, 255, 255, 1);
+    background: -moz-linear-gradient(top, #f2f6f5 0%, #cbd5d6 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f2f6f5), color-stop(100%, #cbd5d6));
+    background: -webkit-linear-gradient(265deg, #f2f6f5 0%, #cbd5d6 100%);
+    
+}
+
+.deRelief2 {
+    width: 65%;
+    height: 65%;
+    margin: 35% 35% 35% 35%;
+    background: #cbd5d6;
+    background: -moz-linear-gradient(top, #cbd5d6 0%, #f2f6f5 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #cbd5d6), color-stop(100%, #f2f6f5));
+    background: -webkit-linear-gradient(-90deg, #cbd5d6 0%, #f2f6f5 100%);
+    
+
+}
+
+.quarter2 .ssaThermoButton {
+    top: 16px;
+    left: 10px;
+
+}
+
+
+.quarter3 {
+  bottom: 0;
+  left: 0;
+  background: #f2f6f5;
+  border-radius: 0 0 0 80%;
+  --relief-dir: -265deg;
+  --fond-dir: 90deg;
+}
+
+.deFond3{
+    background: #f2f6f5;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .5), 0 1px 1px rgba(255, 255, 255, 1);
+    background: -moz-linear-gradient(top, #f2f6f5 0%, #cbd5d6 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f2f6f5), color-stop(100%, #cbd5d6));
+    background: -webkit-linear-gradient(90deg, #f2f6f5 0%, #cbd5d6 100%);
+    
+}
+
+.deRelief3 {
+    width: 65%;
+    height: 65%;
+    margin: 35% 35% 35% 35%;
+    background: #cbd5d6;
+    background: -moz-linear-gradient(top, #cbd5d6 0%, #f2f6f5 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #cbd5d6), color-stop(100%, #f2f6f5));
+    background: -webkit-linear-gradient(-265deg, #cbd5d6 0%, #f2f6f5 100%);
+    
+
+}
+
+.quarter3 .ssaThermoButton {
+    bottom: 16px;
+    right: 10px;
+
+}
+.quarter4 {
+  bottom: 0;
+  right: 0;
+   background: #f2f6f5;
+  border-radius: 0 0 80% 0;
+  --relief-dir: 90deg;
+  --fond-dir: 2deg;
+}
+
+.deFond4{
+    background: #f2f6f5;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .5), 0 1px 1px rgba(255, 255, 255, 1);
+    background: -moz-linear-gradient(top, #f2f6f5 0%, #cbd5d6 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f2f6f5), color-stop(100%, #cbd5d6));
+    background: -webkit-linear-gradient(2deg, #f2f6f5 0%, #cbd5d6 100%);
+    
+}
+
+.deRelief4 {
+    width: 65%;
+    height: 65%;
+    margin: 35% 35% 35% 35%;
+    background: #cbd5d6;
+    background: -moz-linear-gradient(top, #cbd5d6 0%, #f2f6f5 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #cbd5d6), color-stop(100%, #f2f6f5));
+    background: -webkit-linear-gradient(90deg, #cbd5d6 0%, #f2f6f5 100%);
+    
+
+}
+.quarter4 .ssaThermoButton {
+    bottom: 16px;
+    left: 10px;
+
+}
+
+
+
+.deFond{
+    background: #f2f6f5;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .5), 0 1px 1px rgba(255, 255, 255, 1);
+    background: -moz-linear-gradient(top, #f2f6f5 0%, #cbd5d6 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f2f6f5), color-stop(100%, #cbd5d6));
+    background: -webkit-linear-gradient(var(--fond-dir), #f2f6f5 0%, #cbd5d6 100%);
+    /*background: -o-linear-gradient(top, #f2f6f5 0%, #cbd5d6 100%);*/
+ 
+}
+.deRelief {
+    width: 65%;
+    height: 65%;
+    margin: 35% 35% 35% 35%;
+    background: #cbd5d6;
+    background: -moz-linear-gradient(top, #cbd5d6 0%, #f2f6f5 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #cbd5d6), color-stop(100%, #f2f6f5));
+    background: -webkit-linear-gradient(var(--relief-dir), #cbd5d6 0%, #f2f6f5 100%);
+    
+
+}
+
+
+
+
+
+.de {
+    position: absolute;
+    top: 20%; left: 20%;
+    width: 60%;
+    height: 60%;
+    border-radius: 100%;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .1);
+    background-color: transparent;
+}
+.den {
+    position: absolute;
+    
+    width: 100%;
+    height: 100%;
+    margin: -50% 0 0 -50%;
+    border-radius: 100%;
+   
+    background: #df3341;
+    background: -moz-linear-gradient(left, #df3341 0%, #d4f355 50%, #61c0ec 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#df3341), color-stop(50%,#d4f355), color-stop(100%,#61c0ec));
+    background: -webkit-linear-gradient(left, #df3341 0%,#d4f355 50%,#61c0ec 100%);
+    background: linear-gradient(to right, #df3341 0%,#d4f355 50%,#61c0ec 100%);
+
+    
+}
+.dene {
+    width: 90%;
+    height: 90%;
+    margin: -45% 0 0 -45%;
+    border-radius: 100%;
+    box-shadow: inset 0 2px 2px rgba(255, 255, 255, .4), 0 3px 13px rgba(0, 0, 0, .85);
+    background: #f2f6f5;
+    background: -moz-linear-gradient(top, #f2f6f5 0%, #cbd5d6 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f2f6f5), color-stop(100%, #cbd5d6));
+    background: -webkit-linear-gradient(top, #f2f6f5 0%, #cbd5d6 100%);
+    background: -o-linear-gradient(top, #f2f6f5 0%, #cbd5d6 100%);
+
+    
+}
+.denem {
+    width: 85%;
+    height: 86%;
+    margin: -43% 0 0 -43%;
+    border-radius: 100%;
+    background: #cbd5d6;
+    background: -moz-linear-gradient(top, #cbd5d6 0%, #f2f6f5 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #cbd5d6), color-stop(100%, #f2f6f5));
+    background: -webkit-linear-gradient(top, #cbd5d6 0%, #f2f6f5 100%);
+}
+
+.deneme {
+    position: absolute;  
+    left: 50%; top: 42%;
+    /*padding: 20px 10px 20px 10px;*/
+    
+    width: 78%;
+    height: 34%;
+    display: inline-block;
+    margin: -39% 0 0 -20%;
+
+    color: #555;
+    text-shadow: 1px 1px 1px white;
+    font-family: 'Dosis';
+    font-size: 16px;
+
+    font-weight: 800;
+    text-align: left;
+
+    
+}
+
+
+.denemeBas {
+   position: absolute;  
+    left: 50%; top: 90%;
+    /*padding: 20px 10px 20px 10px;*/
+    
+    width: 78%;
+    height: 34%;
+    display: inline-block;
+    margin: -39% 0 0 -39%;
+
+    color: #558;
+    text-shadow: 1px 1px 1px white;
+    font-family: 'Dosis';
+    font-size: 8px;
+    font-weight: 300;
+    text-align: left;
+}
+
+
+.ssaTemp {
+   /* position: absolute; */
+    
+    
+    height: 100%; 
+    float:left;
+
+    text-align: right;
+    font-size: 3em;
+   
+    
+}
+
+.ssaTempDegre{
+    
+    
+    
+    padding-top:10%;
+    
+    float:left;
+
+    font-size: 1em; 
+    text-align: left;
+   /* border:1px dotted black;*/
+    
+
+}
+
+.ssaTempDecimal {
+    padding-top: 10%;
+    
+    float:left;
+
+    font-size: 1em; 
+    text-align: right;
+    
+    
+    
+       
+}
+.ssaTermostatActionTitle{
+    padding-top: 12%;
+    
+    font-size: 1em; 
+    
+    float:right;
+    text-align: left;
+    
+
+}
+.ssaTermostatAction{
+    padding-top: 10%;
+    
+    
+    float:right;
+    
+    font-size: 1.5em; 
+    text-align: right;
+    
+    
+    
+}
+
+.degres {
+     display: none;
+
+}
+
+
+
+
+.roue {
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    width: 100%;
+    height: 100%;
+    margin: -50% 0 0 -50%;
+    border-radius: 100%;
+    
+    background: #df3341;
+    background: -moz-linear-gradient(left, #df3341 0%, #d4f355 50%, #61c0ec 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#df3341), color-stop(50%,#d4f355), color-stop(100%,#61c0ec));
+    background: -webkit-linear-gradient(left, #df3341 0%,#d4f355 50%,#61c0ec 100%);
+    background: linear-gradient(to right, #df3341 0%,#d4f355 50%,#61c0ec 100%);
+    animation: rota 2.5s infinite linear;
+    
+    
+}
+
+
+
+
+
+
+
+.ssaThermoLine{ 
+    position: absolute;  
+    top: 52%;
+    width:100%;
+     height:1px;
+      background: #fff;
+  }
+
+/* Animation */
+@keyframes rota {
+    from { }
+    to { transform: rotate(360deg); }
+}

@@ -1,0 +1,108 @@
+
+
+
+        
+	    
+
+    <div style="width:260px;height:300px;" class="ssaTempcontainer eqLogic eqLogic-widget "  data-category="#category#" data-eqLogic_id="#id#" data-version="dashboard">
+    
+    <link rel="stylesheet" href="plugins/ssaThermostat/core/template/dashboard/css/thermometre.css" />
+    <div class="ssathermoTetiere">
+       <center> <span style="font-size : 1.2em;"><a href="#eqLink#">#name#</a></span><br/></center>
+    </div>
+    
+    <div class="ssaThermostat">
+        
+        <div class="ssaThermo">
+            
+        <!-- bordure ext -->
+            <div class="quarter quarter1 deFond1">
+                <div class="ssaThermoButton"></div>     
+                <div class="quarter quarter1  deRelief1">
+                </div>
+            </div>
+            <div class="quarter quarter2 deFond2">     
+                <div class="ssaThermoButton"></div>     
+                <div class="quarter quarter2  deRelief2"></div>
+            </div>
+            <div class="quarter quarter3 deFond3 ssaThermoButton_#id#" id="#cmd_rollDown_id#">
+                <div class="ssaThermoButton">mode -</div>     
+                <div class="quarter quarter3  deRelief3"></div>
+            </div>
+            <div class="quarter quarter4 deFond4 ssaThermoButton_#id#" id="#cmd_rollUp_id#">
+                <div class="ssaThermoButton">mode +</div> 
+                <div class="quarter quarter4  deRelief4"></div>
+            </div>
+
+
+        <!-- afficheur -->
+            <div class="de">
+                <div id='animatedring' class="#activate#"></div>
+                <div class="dene">
+                        <div class="denem">
+                            <div class="deneme">
+                                <div class="ssaTemp">#temp_int#</div>
+                                <div class="ssaTempDegre">&deg;</div>
+                                <div class="ssaTempDecimal">#temp_dec#</div>
+                               
+                            </div>
+                            <div class="ssaThermoLine"></div>
+                            <div class="denemeBas">
+                                <div class="ssaTemp">#consigne_int#</div>
+                                <div class="ssaTempDegre">&deg;</div>
+                                <div class="ssaTempDecimal">#consigne_dec#</div>
+                                <div class="ssaTermostatAction">"#mode_lib#"</div>
+                               
+                                
+                                
+                            </div>
+                        
+                            
+                        </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+        <div class="ssaThermoResume" id="ssaHisto_#id#">
+        
+            <center><strong class="tooltips" title="#temperature_collectDate#" style="font-size:0.8em;">historique</strong></center>
+        </div>    
+        
+    </div>
+        <script>
+            /*if ('#$errState#' != 'ok')
+            {
+               $('#div_alert').showAlert({message: '#result_msg#', level: 'danger'});
+            }
+            */
+            $( document ).ready(function() {
+                
+                $('.ssaThermoButton_#id#').click(function() {
+                    var currentId = $(this).attr('id'); 
+                    jeedom.cmd.execute({id: currentId});   
+                });
+                
+           
+                $('#ssaHisto_#id#').click(function() {
+                    $('#md_modal').dialog({title: "Historique"});
+                    $('#md_modal').load('index.php?v=d&plugin=ssaThermostat&modal=modal.ssaThermostat&ssa=#liste_info#').dialog('open');
+               
+                });
+               
+                
+                
+            });
+            
+            
+                
+    </script>   
+    
+</div>
+
+        
+
+
+   
