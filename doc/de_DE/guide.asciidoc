@@ -1,0 +1,87 @@
+:Date: $Date$
+:Revision: $Id$
+:docinfo:
+:title:  guide
+:page-liquid:
+:icons:
+
+
+== Mode d'emploi du thermostat.
+'''
+
+L'utilisation du thermostat est simple et intuitif. Le thermostat dispose de deux boutons "mode -" et "mode +". +
+Ces deux boutons permettent de passer successivement  sur les modes suivants :
+
+*  off  : le thermostat est en arrêt forcé,
+*  on   : le thermostat est en marche forcé, la chaudière est donc en route,
+*  auto : le thermostat est en mode pilote, la chaudière sera mise en marche en fonction de la température de consigne et de la température d'ambiance,
+*  Hors gel : le thermostat est en mode pilote, la chaudiere sera mise en marche pour maintenir la température de consigne "Hors gel".
+*  Absence : le thermostat est en mode pilote, la chaudiere sera mise en marche pour maintenir la température de consigne "Absence".
+
+:imagesdir: ../images
+
+.Widget 'Desktop'
+[cols="2,3"]
+|===
+
+a|.vue desktop
+image::thermo_desc.png[height=300,width=500,role="left"]
+a|
+[guide]
+.guide
+
+.... Ring : ce disque animé est présent lorsque la chaudière est en marche.
+.... Mode : cet indicateur indique le mode de fonctionnement du thermostat. +
+(Off > On > Auto > Hors Gel > Absence)
+.... Température : température de la pièce.
+.... Consigne :  température de consigne (température à atteindre).
+.... Mode + : bouton permettant de changer de mode.
+.... Mode - : bouton permettant de changer de mode.
+.... Historique : permet d'accéder au graphique statistique.
+
+
+|===
+
+
+
+.Widget 'mobile'
+[cols="2,3"]
+|===
+
+a|.vue desktop
+image::mobile_desc.png[height=300,width=500,role="left"]
+a|
+[guide]
+.guide
+
+.... Ring Consigne: indicateur  de température de consigne
+.... Ring Température : indicateur du niveau de température Ambiante
+.... Température : température de la pièce.
+.... Mode : cet indicateur indique le mode de fonctionnement du thermostat. +
+(Off > On > Auto > Hors Gel > Absence)
+.... État : cet indicateur indique l'état de fonctionnement de la chaudière
+.... Mode + : bouton permettant de changer de mode
+.... Mode - : bouton permettant de changer de mode
+
+
+
+|===
+
+
+.Statistiken
+[cols="4,1"]
+|===
+
+a|.Statistique
+image::histo_desc.png[height=300,width=800,role="left"]
+a|
+[guide]
+.guide
+
+... Temperatur
+.... Consigne
+.... État chaudière
+
+
+
+|===

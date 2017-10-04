@@ -1,0 +1,19 @@
+:Date: $Date$
+:Revision: $Id$
+:docinfo:
+:title:  guide
+:page-liquid:
+:icons:
+
+
+== Intégration avec vos scénarios.
+'''
+
+.Le thermostat proposes les commandes suivantes, pouvant etre appelées directement à partir de vos scénarios.
+*  Presence : passe le themostat en mode auto. +
+La consigne de chauffe est defini en fonction des plages ou de la température par defaut
+*  Absence : la consigne de chauffe utilisée corresponds à la température "absence"
+*  Horgels la consigne de chauffe utilisée corresponds à la température "hors gel"
+
+[NOTE]
+Ces nouvelles commandes ne sont pas disponible pour les thermostat dejà existants. Supprimez vos thermostats existant et créez de nouveaux thermostats pour obtenir ces nouvelles commandes.
