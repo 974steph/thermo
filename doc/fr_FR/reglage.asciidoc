@@ -1,0 +1,43 @@
+:Date: $Date$
+:Revision: $Id$
+:docinfo:
+:title:  planning
+:page-liquid:
+:icons:
+:imagesdir: ../images
+
+==== Réglage du thermostat
+
+
+image::pid.png[]
+
+[TIP]
+si vous êtes en mode expert, vous allez voire  une 4eme étapes :  "Réglage Thermostat"
+
+
+==== Cycle
+
+Par défaut, la taille d'un cycle est de 10 minutes. En fonction du type de chauffage, vous pouvez augemnter cette taille. +
+Pour rappel, sur un cycle, le thermostat ne vas chauffer qu'un pourcentage de temps. Plus le cycle est long et moins le thermostat sera reactif.
+
+[TIP]
+Personnelement, j'utilise un cycle de 10 minutes pour ma chaudière au gaz. +
+De  20 minutes pour ma clim et 60 minutes pour mon seche serviette.
+
+
+
+
+
+==== Parametre PID
+
+Vous pouvez modifier les parametres Kp Ki et Kd  du pid. Vous trouverez ci joint un article interessant sur la gestion par pid http://irobux.com/le-pid-explique-a-mon-fils/
+
+
+==== Remise à zero
+
+Je vous proposes un bouton permettant de remettre ces parametres à leurs valeurs par defaut.
+
+
+[CAUTION]
+Pour activer ces parametres, vous devez absolument passer le thermostat à l'état "Off" et ensuite à l'état "Auto". +
+Ces parametres ne sont donc pas pris en compte temps que vous n'avez pas arrêté le thermostat. (c'est la solution la plus simple pour eviter de gérer un changement de configuration pendant une plage active).

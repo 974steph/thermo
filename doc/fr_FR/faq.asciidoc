@@ -1,0 +1,13 @@
+:Date: $Date$
+:Revision: $Id$
+:docinfo:
+:title:  faq
+:page-liquid:
+:icons:
+
+
+== FAQ
+'''
+
+.compatibilité jeedom v3
+il est conseillé de suprrimer les thermostats existant et d'en créer de nouveaux

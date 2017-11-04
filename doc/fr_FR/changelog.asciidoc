@@ -1,0 +1,30 @@
+:Date: $Date$
+:Revision: $Id$
+:docinfo:
+:title:  changelog
+:page-liquid:
+:icons:
+:imagesdir: ../images
+
+
+
+== Changelog
+'''
+.version : novembre 2017
+* patch proposé par indexFlotant : modification de la vue historique
+
+.version : octobre 2017
+* compatibilité jeedom V3.1.3
+* erreur 500
+
+.version : sept 2017
+* compatibilité jeedom V3
+
+.version :   janv 2017
+* dev terminé, test en cours
+
+
+.version : 2016-11-09
+* correction "bogue graphique window 7 & 8"
+
+
