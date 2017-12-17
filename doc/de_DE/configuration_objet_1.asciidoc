@@ -6,7 +6,7 @@
 :icons:
 :imagesdir: ../images
 
-La configuration des équipements "Thermostat" est accessible à partir du menu plugin :
+Die Konfiguration des Gerätes "Thermostat" ist über das Plugin-Menü erreichbar :
 il vous suffit de cliquer sur le bouton "ajouter" ou sur un équipement déjà présent.
 
 
@@ -31,7 +31,7 @@ Cette étape permet de définir, l'objet parent, l'activation et la visibilité 
 
 
 
-=== La configuration du Thermostat s'effectue en 4 étapes :
+=== Die Konfiguration des Thermostats erfolgt in 4 Schritten :
 
 
 include::pilote.asciidoc[]
