@@ -9,5 +9,5 @@
 == FAQ
 '''
 
-.compatibilité jeedom v3
+.Kompatibilität mit Jeedom v3
 il est conseillé de suprrimer les thermostats existant et d'en créer de nouveaux
