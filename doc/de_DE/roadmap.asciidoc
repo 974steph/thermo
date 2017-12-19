@@ -9,7 +9,7 @@
 == Fahrplan
 '''
 
-.janvier 2017
+.Januar 2017
 * ajout mode absence
 * ajout pour les scénarios des commandes
 ** presence
